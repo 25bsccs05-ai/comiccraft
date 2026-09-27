@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ComicCraft</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="hero">
+
+        <p class="tag">
+            GENERATIVE AI COMIC CREATOR
+        </p>
+
+        <h1>
+            ComicCraft
+        </h1>
+
+        <p>
+            Create your own AI-powered comic story
+            with characters, narration and illustrations.
+        </p>
+
+    </header>
+
+
+    <main class="card">
+
+        <h2>
+            Create Your Comic
+        </h2>
+
+        {% if error %}
+
+        <div class="error">
+
+            <strong>
+                Error:
+            </strong>
+
+            <p>
+                {{ error }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <form
+            action="/generate"
+            method="post"
+        >
+
+            <label>
+                Story Prompt
+            </label>
+
+            <textarea
+                name="story_prompt"
+                placeholder="A brave fox exploring an enchanted forest..."
+                required
+            ></textarea>
+
+
+            <div class="row">
+
+                <div>
+
+                    <label>
+                        Character Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="character_name"
+                        placeholder="Luna"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Setting
+                    </label>
+
+                    <input
+                        type="text"
+                        name="setting"
+                        placeholder="Enchanted Forest"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div>
+
+                    <label>
+                        Story Tone
+                    </label>
+
+                    <select
+                        name="tone"
+                        required
+                    >
+
+                        <option value="dramatic">
+                            Dramatic
+                        </option>
+
+                        <option value="funny">
+                            Funny
+                        </option>
+
+                        <option value="adventurous">
+                            Adventurous
+                        </option>
+
+                        <option value="mysterious">
+                            Mysterious
+                        </option>
+
+                        <option value="heartwarming">
+                            Heartwarming
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Art Style
+                    </label>
+
+                    <select
+                        name="art_style"
+                        required
+                    >
+
+                        <option value="anime">
+                            Anime
+                        </option>
+
+                        <option value="comic book">
+                            Comic Book
+                        </option>
+
+                        <option value="cartoon">
+                            Cartoon
+                        </option>
+
+                        <option value="watercolor">
+                            Watercolor
+                        </option>
+
+                        <option value="cinematic">
+                            Cinematic
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+            >
+                Generate Comic
+            </button>
+
+        </form>
+
+    </main>
+
+
+    <section class="features">
+
+        <div>
+            <b>01</b>
+            <h3>AI Outline</h3>
+            <p>
+                Creates a five-panel story.
+            </p>
+        </div>
+
+        <div>
+            <b>02</b>
+            <h3>AI Story</h3>
+            <p>
+                Generates narration and dialogue.
+            </p>
+        </div>
+
+        <div>
+            <b>03</b>
+            <h3>AI Images</h3>
+            <p>
+                Generates comic illustrations.
+            </p>
+        </div>
+
+        <div>
+            <b>04</b>
+            <h3>PDF Export</h3>
+            <p>
+                Download your finished comic.
+            </p>
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>
